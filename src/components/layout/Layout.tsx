@@ -21,7 +21,9 @@ const Layout: FC<PropsWithChildren<IMeta>> = ({
 				overflow={'hidden'}
 			>
 				<Header window={() => window} />
-				<Box flexGrow={'1'}>{children}</Box>
+				<Box flexGrow={'1'} pt={10}>
+					{children}
+				</Box>
 				<Footer />
 			</Box>
 		</Meta>
