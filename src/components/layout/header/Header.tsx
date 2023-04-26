@@ -24,7 +24,7 @@ const Header: FC<TypeWindow> = ({ window }) => {
 
 	return (
 		<Box sx={{ display: 'flex' }}>
-			<AppBar component='nav' sx={{ backgroundColor: '#021626' }}>
+			<AppBar component='nav' sx={{ backgroundColor: '#141616' }}>
 				<Toolbar>
 					<IconButton
 						color='inherit'

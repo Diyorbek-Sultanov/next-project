@@ -5,7 +5,7 @@ export interface IHomeData {
 	author: TypeAuthor
 }
 
-type TypeAuthor = {
+export type TypeAuthor = {
 	name: string
 	image: string
 }

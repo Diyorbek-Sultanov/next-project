@@ -1,9 +1,9 @@
 import { FC } from 'react'
-import { Avatar, Box, Typography } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 import Image from 'next/image'
-import date from 'date-and-time'
 
 import { IHomeData } from '@/types/home.types'
+import MyAvatar from '@/components/ui/MyAvatar'
 
 const SliderItem: FC<{ item: IHomeData }> = ({ item }) => {
 	return (
@@ -49,15 +49,7 @@ const SliderItem: FC<{ item: IHomeData }> = ({ item }) => {
 						{item.title}
 					</Typography>
 					<Typography variant='subtitle1'>{item.exerpt}</Typography>
-					<Box display={'flex'} columnGap={'20px'} alignItems={'center'} mt={2}>
-						<Avatar src={item.author.image} alt={item.author.name} />
-						<Box>
-							<Typography variant='body1'>{item.author.name}</Typography>
-							<Typography>
-								{date.format(new Date(), 'DD MMM YYYY')} &#x2022; 10 min read
-							</Typography>
-						</Box>
-					</Box>
+					<MyAvatar author={item.author} />
 				</Box>
 			</Box>
 		</Box>
