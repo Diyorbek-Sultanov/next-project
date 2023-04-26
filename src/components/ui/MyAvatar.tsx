@@ -10,7 +10,7 @@ const MyAvatar: FC<{ author: TypeAuthor }> = ({ author }) => {
 				<Avatar src={author.image} alt={author.name} />
 				<Box>
 					<Typography variant='body1'>{author.name}</Typography>
-					<Typography>
+					<Typography color={'gray'}>
 						{date.format(new Date(), 'DD MMM YYYY')} &#x2022; 10 min read
 					</Typography>
 				</Box>

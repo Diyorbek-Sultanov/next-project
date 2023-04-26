@@ -1,7 +1,9 @@
 import { FC } from 'react'
 import Box from '@mui/material/Box'
+
 import Slider from './Slider'
 import Sidebar from './Sidebar'
+import Blog from './Blog'
 
 const Home: FC = () => {
 	return (
@@ -15,7 +17,7 @@ const Home: FC = () => {
 				}}
 			>
 				<Sidebar />
-				<p>DFdfdf</p>
+				<Blog />
 			</Box>
 		</Box>
 	)

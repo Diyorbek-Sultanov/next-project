@@ -12,7 +12,7 @@ const DynamicCarousel = dynamic(() => import('react-multi-carousel'), {
 
 const Slider: FC = () => {
 	return (
-		<Box width={'100%'} height={'70vh'} mb={3}>
+		<Box width={'100%'} height={'70vh'} mb={8}>
 			<DynamicCarousel
 				responsive={{
 					mobile: {
@@ -21,7 +21,7 @@ const Slider: FC = () => {
 					},
 				}}
 				showDots={true}
-				infinite={false}
+				infinite={true}
 				autoPlay={true}
 				autoPlaySpeed={2000}
 				draggable={false}
