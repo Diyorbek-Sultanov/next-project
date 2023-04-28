@@ -1,6 +1,4 @@
-import { IHomeData } from '@/types/home.types'
-
-export const homeData: IHomeData[] = [
+export const homeData = [
 	{
 		image: 'https://media.graphassets.com/MxJZhmooRRuudoErkQ38',
 		title: 'Technical SEO with Hygraph',

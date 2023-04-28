@@ -3,14 +3,13 @@ import { Box } from '@mui/material'
 
 import BlogItem from '@/components/ui/BlogItem'
 
-import { homeData } from './home.data'
+import { IBlogProps } from '@/types/blog.types'
 
-const Blog: FC = () => {
+const Blog: FC<IBlogProps> = ({ blogs }) => {
 	return (
 		<Box mr={2}>
-			{homeData.map(item => (
-				<BlogItem item={item} key={item.title} />
-			))}
+			{blogs.length &&
+				blogs.map(blog => <BlogItem blog={blog} key={blog.id} />)}
 		</Box>
 	)
 }

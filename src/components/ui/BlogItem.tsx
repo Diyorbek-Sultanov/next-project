@@ -1,11 +1,11 @@
 import { FC } from 'react'
 import { Box, Typography } from '@mui/material'
 
-import { IHomeData } from '@/types/home.types'
 import Image from 'next/image'
 import MyAvatar from './MyAvatar'
+import { IBlogSingle } from '@/types/blog.types'
 
-const BlogItem: FC<{ item: IHomeData }> = ({ item }) => {
+const BlogItem: FC<IBlogSingle> = ({ blog }) => {
 	return (
 		<Box
 			mb={3}
@@ -19,8 +19,8 @@ const BlogItem: FC<{ item: IHomeData }> = ({ item }) => {
 		>
 			<Box sx={{ position: 'relative', width: '100%', height: '50vh' }}>
 				<Image
-					src={item.image}
-					alt={item.title}
+					src={blog.image.url}
+					alt={blog.title}
 					fill
 					style={{ borderRadius: '10px', objectFit: 'cover' }}
 				/>
@@ -35,13 +35,13 @@ const BlogItem: FC<{ item: IHomeData }> = ({ item }) => {
 						WebkitTextFillColor: 'transparent',
 					}}
 				>
-					{item.title}
+					{blog.title}
 				</Typography>
 				<Typography variant='body2' color={'gray'} mb={1.5}>
-					{item.exerpt}
+					{blog.expert}
 				</Typography>
 			</Box>
-			<MyAvatar author={item.author} />
+			<MyAvatar author={blog.author} createdAt={blog.createdAt} />
 		</Box>
 	)
 }
