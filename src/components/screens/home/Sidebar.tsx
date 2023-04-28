@@ -1,10 +1,11 @@
 import { FC } from 'react'
 import { Box, Typography, Button } from '@mui/material'
 
-import { navData } from '@/components/layout/header/nav.data'
+import { ISidebarProps } from '@/types/blog.types'
+
 import LatestSidebar from './LatestSidebar'
 
-const Sidebar: FC = () => {
+const Sidebar: FC<ISidebarProps> = ({ lastBlogs, categories }) => {
 	return (
 		<Box>
 			<Box
@@ -19,8 +20,12 @@ const Sidebar: FC = () => {
 					Category
 				</Typography>
 				<Box display={'flex'} flexDirection={'column'} rowGap={2}>
-					{navData.map((item, index) => (
-						<Button fullWidth sx={{ justifyContent: 'flex-start' }} key={index}>
+					{categories.map(item => (
+						<Button
+							fullWidth
+							sx={{ justifyContent: 'flex-start' }}
+							key={item.id}
+						>
 							{item.label}
 						</Button>
 					))}
@@ -31,7 +36,7 @@ const Sidebar: FC = () => {
 				<Typography variant='h5' color={'#fff'} mb={1.5}>
 					Latest
 				</Typography>
-				<LatestSidebar />
+				<LatestSidebar lastBlogs={lastBlogs} />
 			</Box>
 		</Box>
 	)

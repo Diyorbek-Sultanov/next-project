@@ -4,14 +4,14 @@ import Box from '@mui/material/Box'
 import Slider from './Slider'
 import Sidebar from './Sidebar'
 import Blog from './Blog'
-import { IBlogProps } from '@/types/blog.types'
+import { IHomeProps } from '@/types/blog.types'
 import Layout from '@/components/layout/Layout'
 
-const Home: FC<IBlogProps> = ({ blogs }) => {
+const Home: FC<IHomeProps> = ({ blogs, lastBlogs, categories }) => {
 	return (
 		<Layout title='Home' description='Blog home page this is beautiful'>
 			<Box>
-				<Slider />
+				<Slider blogs={blogs.slice(0, 3)} />
 				<Box
 					sx={{
 						display: 'grid',
@@ -19,7 +19,7 @@ const Home: FC<IBlogProps> = ({ blogs }) => {
 						columnGap: '35px',
 					}}
 				>
-					<Sidebar />
+					<Sidebar lastBlogs={lastBlogs} categories={categories} />
 					<Blog blogs={blogs} />
 				</Box>
 			</Box>

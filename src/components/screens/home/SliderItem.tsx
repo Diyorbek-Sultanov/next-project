@@ -2,10 +2,10 @@ import { FC } from 'react'
 import { Box, Typography } from '@mui/material'
 import Image from 'next/image'
 
-import { IHomeData } from '@/types/home.types'
 import MyAvatar from '@/components/ui/MyAvatar'
+import { IBlog } from '@/types/blog.types'
 
-const SliderItem: FC<{ item: IHomeData }> = ({ item }) => {
+const SliderItem: FC<{ blog: IBlog }> = ({ blog }) => {
 	return (
 		<Box>
 			<Box
@@ -16,8 +16,8 @@ const SliderItem: FC<{ item: IHomeData }> = ({ item }) => {
 				}}
 			>
 				<Image
-					src={item.image}
-					alt={item.title}
+					src={blog.image.url}
+					alt={blog.title}
 					fill
 					priority
 					style={{ objectFit: 'cover' }}
@@ -46,10 +46,14 @@ const SliderItem: FC<{ item: IHomeData }> = ({ item }) => {
 					}}
 				>
 					<Typography variant='h2' mb={'25px'}>
-						{item.title}
+						{blog.title}
 					</Typography>
-					<Typography variant='subtitle1'>{item.exerpt}</Typography>
-					<MyAvatar author={item.author} />
+					<Typography variant='subtitle1'>{blog.expert}</Typography>
+					<MyAvatar
+						author={blog.author}
+						createdAt={blog.createdAt}
+						text={blog.description.text}
+					/>
 				</Box>
 			</Box>
 		</Box>

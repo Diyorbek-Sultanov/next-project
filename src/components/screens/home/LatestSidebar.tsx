@@ -3,16 +3,16 @@ import { Box, Typography } from '@mui/material'
 import Image from 'next/image'
 
 import MyAvatar from '@/components/ui/MyAvatar'
-import { homeData } from './home.data'
+import { ILatestBlog } from '@/types/blog.types'
 
-const LatestSidebar: FC = () => {
+const LatestSidebar: FC<ILatestBlog> = ({ lastBlogs }) => {
 	return (
 		<Box display={'flex'} flexDirection={'column'} rowGap={2.5} color={'#fff'}>
-			{homeData.map(item => (
+			{lastBlogs.map(item => (
 				<Box key={item.title}>
 					<Box display={'flex'} columnGap={2.5}>
 						<Image
-							src={item.image}
+							src={item.image.url}
 							alt={item.title}
 							width={100}
 							height={100}
@@ -22,7 +22,7 @@ const LatestSidebar: FC = () => {
 							<Typography variant='body1' mb={3}>
 								{item.title}
 							</Typography>
-							<MyAvatar author={item.author} />
+							<MyAvatar author={item.author} createdAt={item.createdAt} />
 						</Box>
 					</Box>
 				</Box>

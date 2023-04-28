@@ -41,7 +41,11 @@ const BlogItem: FC<IBlogSingle> = ({ blog }) => {
 					{blog.expert}
 				</Typography>
 			</Box>
-			<MyAvatar author={blog.author} createdAt={blog.createdAt} />
+			<MyAvatar
+				author={blog.author}
+				createdAt={blog.createdAt}
+				text={blog.description.text}
+			/>
 		</Box>
 	)
 }

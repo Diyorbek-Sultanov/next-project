@@ -1,19 +1,16 @@
 import { FC } from 'react'
-import dynamic from 'next/dynamic'
 import { Box } from '@mui/material'
+import Carousel from 'react-multi-carousel'
 
-import { homeData } from './home.data'
+import { ISliderProps } from '@/types/slider.type'
+
 import SliderItem from './SliderItem'
 import 'react-multi-carousel/lib/styles.css'
 
-const DynamicCarousel = dynamic(() => import('react-multi-carousel'), {
-	ssr: false,
-})
-
-const Slider: FC = () => {
+const Slider: FC<ISliderProps> = ({ blogs }) => {
 	return (
 		<Box width={'100%'} height={'70vh'} mb={8}>
-			<DynamicCarousel
+			<Carousel
 				responsive={{
 					mobile: {
 						breakpoint: { max: 3000, min: 0 },
@@ -23,13 +20,14 @@ const Slider: FC = () => {
 				showDots={true}
 				infinite={true}
 				autoPlay={true}
+				ssr={true}
 				autoPlaySpeed={2000}
 				draggable={false}
 			>
-				{homeData.map(item => (
-					<SliderItem item={item} key={item.title} />
+				{blogs.map(blog => (
+					<SliderItem blog={blog} key={blog.id} />
 				))}
-			</DynamicCarousel>
+			</Carousel>
 		</Box>
 	)
 }

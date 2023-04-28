@@ -2,7 +2,6 @@ import { FC } from 'react'
 import { Box } from '@mui/material'
 
 import BlogItem from '@/components/ui/BlogItem'
-
 import { IBlogProps } from '@/types/blog.types'
 
 const Blog: FC<IBlogProps> = ({ blogs }) => {
