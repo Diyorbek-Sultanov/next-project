@@ -18,6 +18,6 @@ export const getStaticProps: GetStaticProps<IHomeProps> = async () => {
 
 	return {
 		props: { blogs, lastBlogs, categories },
-		revalidate: 240,
+		revalidate: 60,
 	}
 }

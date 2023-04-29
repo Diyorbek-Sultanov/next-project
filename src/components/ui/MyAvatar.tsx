@@ -9,7 +9,7 @@ const MyAvatar: FC<TypeMyAvatar> = ({ author, createdAt, text }) => {
 	return (
 		<Box display={'flex'} columnGap={'20px'} alignItems={'center'} mt={2}>
 			<Box display={'flex'} columnGap={1.5}>
-				{/*<Avatar src={author.avatar.url} alt={author.name} />*/}
+				<Avatar src={author.avatar.url} alt={author.name} />
 				<Box>
 					<Typography variant='body1'>{author.name}</Typography>
 					<Typography color={'gray'}>

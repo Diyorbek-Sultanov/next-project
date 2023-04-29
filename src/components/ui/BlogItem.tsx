@@ -1,11 +1,13 @@
 import { FC } from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
 import { Box, Typography } from '@mui/material'
 
-import Image from 'next/image'
-import MyAvatar from './MyAvatar'
 import { IBlogSingle } from '@/types/blog.types'
 
-const BlogItem: FC<IBlogSingle> = ({ blog }) => {
+import MyAvatar from './MyAvatar'
+
+const BlogItem: FC<IBlogSingle> = ({ blog, description }) => {
 	return (
 		<Box
 			mb={3}
@@ -18,12 +20,14 @@ const BlogItem: FC<IBlogSingle> = ({ blog }) => {
 			}}
 		>
 			<Box sx={{ position: 'relative', width: '100%', height: '50vh' }}>
-				<Image
-					src={blog.image.url}
-					alt={blog.title}
-					fill
-					style={{ borderRadius: '10px', objectFit: 'cover' }}
-				/>
+				<Link href={`/blog/${blog.slug}`}>
+					<Image
+						src={blog.image.url}
+						alt={blog.title}
+						fill
+						style={{ borderRadius: '10px', objectFit: 'cover' }}
+					/>
+				</Link>
 			</Box>
 			<Box mt={2}>
 				<Typography
@@ -46,6 +50,12 @@ const BlogItem: FC<IBlogSingle> = ({ blog }) => {
 				createdAt={blog.createdAt}
 				text={blog.description.text}
 			/>
+			{description?.html && (
+				<div
+					dangerouslySetInnerHTML={{ __html: description.html }}
+					style={{ marginTop: '20px', padding: '20px' }}
+				/>
+			)}
 		</Box>
 	)
 }

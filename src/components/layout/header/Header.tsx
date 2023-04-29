@@ -11,6 +11,7 @@ import Button from '@mui/material/Button'
 import { navData } from './nav.data'
 import MyDrawer from './Drawer'
 import { TypeWindow } from '@/types/nav.types'
+import Link from 'next/link'
 
 const Header: FC<TypeWindow> = ({ window }) => {
 	const [mobileOpen, setMobileOpen] = useState(false)
@@ -35,13 +36,15 @@ const Header: FC<TypeWindow> = ({ window }) => {
 					>
 						<MenuIcon />
 					</IconButton>
-					<Typography
-						variant='h6'
-						component='div'
-						sx={{ flexGrow: 1, display: { sm: 'block' } }}
-					>
-						IT Blog
-					</Typography>
+					<Link href={`/`} style={{ marginRight: '15px' }}>
+						<Typography
+							variant='h6'
+							component='div'
+							sx={{ flexGrow: 1, display: { sm: 'block' } }}
+						>
+							IT Blog
+						</Typography>
+					</Link>
 					<Box sx={{ display: { xs: 'none', sm: 'block' } }}>
 						{navData.map(item => (
 							<Button key={item.label} sx={{ color: '#fff' }}>

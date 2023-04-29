@@ -12,6 +12,7 @@ export interface IBlog {
 	category: TypeCategory
 	description: {
 		text: string
+		html: string
 	}
 }
 
@@ -34,6 +35,16 @@ export interface ILatestBlog extends Omit<ISidebarProps, 'categories'> {}
 
 export interface IBlogSingle {
 	blog: IBlog
+	description?: {
+		text: string
+		html: string
+	}
+}
+
+export interface IBlogDetailProps {
+	blog: IBlog
+	lastBlogs: IBlog[]
+	categories: ICategory[]
 }
 
 export interface IAuthor {
