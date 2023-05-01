@@ -41,7 +41,18 @@ const BlogItem: FC<IBlogSingle> = ({ blog, description }) => {
 				>
 					{blog.title}
 				</Typography>
-				<Typography variant='body2' color={'gray'} mb={1.5}>
+				<Typography
+					variant='body1'
+					sx={{
+						backgroundColor: 'gray',
+						padding: '4px',
+						marginBottom: '15px',
+						display: 'inline-block',
+					}}
+				>
+					#{blog.category.label}
+				</Typography>
+				<Typography variant='body1' color={'gray'} mb={1.5}>
 					{blog.expert}
 				</Typography>
 			</Box>

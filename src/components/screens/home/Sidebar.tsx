@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router'
 import { FC } from 'react'
 import { Box, Typography, Button } from '@mui/material'
 
@@ -6,6 +7,8 @@ import { ISidebarProps } from '@/types/blog.types'
 import LatestSidebar from './LatestSidebar'
 
 const Sidebar: FC<ISidebarProps> = ({ lastBlogs, categories }) => {
+	const { push } = useRouter()
+
 	return (
 		<Box>
 			<Box
@@ -22,6 +25,7 @@ const Sidebar: FC<ISidebarProps> = ({ lastBlogs, categories }) => {
 				<Box display={'flex'} flexDirection={'column'} rowGap={2}>
 					{categories.map(item => (
 						<Button
+							onClick={() => push(`/category/${item.slug}`)}
 							fullWidth
 							sx={{ justifyContent: 'flex-start' }}
 							key={item.id}
