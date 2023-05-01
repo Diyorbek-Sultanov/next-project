@@ -1,4 +1,7 @@
 import { FC, useState } from 'react'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+
 import AppBar from '@mui/material/AppBar'
 import Box from '@mui/material/Box'
 import Drawer from '@mui/material/Drawer'
@@ -8,13 +11,14 @@ import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
 
+import { TypeWindow } from '@/types/nav.types'
+
 import { navData } from './nav.data'
 import MyDrawer from './Drawer'
-import { TypeWindow } from '@/types/nav.types'
-import Link from 'next/link'
 
 const Header: FC<TypeWindow> = ({ window }) => {
 	const [mobileOpen, setMobileOpen] = useState(false)
+	const { pathname, push } = useRouter()
 
 	const handleDrawerToggle = () => {
 		setMobileOpen(prevState => !prevState)
@@ -36,7 +40,7 @@ const Header: FC<TypeWindow> = ({ window }) => {
 					>
 						<MenuIcon />
 					</IconButton>
-					<Link href={`/`} style={{ marginRight: '15px' }}>
+					<Link href={`/`} style={{ marginRight: '35px' }}>
 						<Typography
 							variant='h6'
 							component='div'
@@ -47,7 +51,15 @@ const Header: FC<TypeWindow> = ({ window }) => {
 					</Link>
 					<Box sx={{ display: { xs: 'none', sm: 'block' } }}>
 						{navData.map(item => (
-							<Button key={item.label} sx={{ color: '#fff' }}>
+							<Button
+								sx={
+									pathname === item.route
+										? { color: '#7286D3' }
+										: { color: '#fff' }
+								}
+								key={item.label}
+								onClick={() => push(`${item.route}`)}
+							>
 								{item.label}
 							</Button>
 						))}

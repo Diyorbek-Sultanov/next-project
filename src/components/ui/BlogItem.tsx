@@ -48,6 +48,7 @@ const BlogItem: FC<IBlogSingle> = ({ blog, description }) => {
 						padding: '4px',
 						marginBottom: '15px',
 						display: 'inline-block',
+						borderRadius: '7px',
 					}}
 				>
 					#{blog.category.label}

@@ -32,6 +32,7 @@ export interface ISidebarProps {
 }
 
 export interface ILatestBlog extends Omit<ISidebarProps, 'categories'> {}
+export interface ICategoryProps extends Omit<ISidebarProps, 'lastBlogs'> {}
 
 export interface IBlogSingle {
 	blog: IBlog

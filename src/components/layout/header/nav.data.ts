@@ -10,7 +10,7 @@ export const navData: TypeNav[] = [
 		label: 'Category',
 	},
 	{
-		route: '/blogs',
+		route: '/blog',
 		label: 'Blogs',
 	},
 ]
